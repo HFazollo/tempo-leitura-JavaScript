@@ -32,12 +32,15 @@ form.addEventListener('submit', function(event) {
     })
 
     const tam = texto.length;
-    const tempo = Math.ceil(tam / 220);
+    let tempo = tam / 220;
 
     if(!tam) { setResultado('Você precisa inserir um texto!', false); return; } 
+
     if(tempo <= 1) {
+        tempo = Math.ceil(tempo);
         setResultado(`Aproximadamente ${tempo} minuto`, true);
-    } else { 
+    } else {
+        tempo = Math.ceil(tempo);
         setResultado(`Aproximadamente ${tempo} minutos`, true);
     }
 })
